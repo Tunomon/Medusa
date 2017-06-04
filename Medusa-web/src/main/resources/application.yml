@@ -1,0 +1,34 @@
+server:
+  context-path: /
+  port: 8080
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/medusa?useUnicode=true&characterEncoding=UTF8&autoReconnect=true
+    username: root
+    password: 285014
+    test-on-borrow: true
+    test-while-idle: true
+    validationQuery: SELECT 1
+    validationInterval: 28000
+    removeAbandoned: true
+    logAbandoned: true
+
+hadoop:
+  nameNode: hdfs://namenode:9000
+
+
+oozie:
+  site: http://namenode:11000/oozie
+  launcher: oozie
+  hdfs: hdfs://namenode:9000
+  jobTracker: namenode:8032
+  hiveJdbc: jdbc:hive2://namenode:10000
+  jobXml: hdfs://namenode:9000/user/fan/conf/hive-site.xml
+#  notify: http://localhost:8080/api/horus/oozie/jobs/notify
+  GMT: '+0800'
+
+hive:
+  url: jdbc:hive2://namenode:10000/
